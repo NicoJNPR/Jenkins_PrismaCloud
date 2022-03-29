@@ -20,17 +20,6 @@ pipeline {
 				}
 			}
 		}
-		/*stage('Deploy Image') {
-			steps {
-				script {
-					docker.withRegistry('', registryCredential) {
-						dockerImage.push("$BUILD_NUMBER")
-						dockerImage.push('latest')
-
-					}
-				}
-			}
-		}*/
 		stage('twistlockScan') {
 			steps {
 				script {
@@ -42,6 +31,17 @@ pipeline {
 			steps {
 				script {
 					prismaCloudPublish resultsFilePattern: 'prisma-cloud-scan-results.json'
+				}
+			}
+		}
+		stage('Deploy Image') {
+			steps {
+				script {
+					docker.withRegistry('', registryCredential) {
+						dockerImage.push("$BUILD_NUMBER")
+						dockerImage.push('latest')
+
+					}
 				}
 			}
 		}
