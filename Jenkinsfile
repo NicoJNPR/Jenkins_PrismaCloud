@@ -20,10 +20,11 @@ pipeline {
 			}
 		}
 		stage('twistlockScan') {
-			prismaCloudScanImage ca: '', cert: '', dockerAddress: 'unix:///var/run/docker.sock', image: 'nicolasmarcoux/my-ubuntu:$BUILD_NUMBER', key: '', logLevel: 'info', podmanPath: '', project: '', resultsFile: 'prisma-cloud-scan-results.json', ignoreImageBuildTime: true
-		}
-		stage('twistlockPublish') {
-			prismaCloudPublish resultsFilePattern: 'prisma-cloud-scan-results.json'
+			steps {
+				script {
+					prismaCloudScanImage ca: '', cert: '', dockerAddress: 'unix:///var/run/docker.sock', image: 'nicolasmarcoux/my-ubuntu:$BUILD_NUMBER', key: '', logLevel: 'info', podmanPath: '', project: '', resultsFile: 'prisma-cloud-scan-results.json', ignoreImageBuildTime: true
+				}
+			}
 		}		
 		stage('Deploy Image') {
 			steps {
