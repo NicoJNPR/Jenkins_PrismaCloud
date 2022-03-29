@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    imagename = "my-ubuntu"
+    imagename = "yenigul/hacicenkins"
     registryCredential = 'dockerhub'
     dockerImage = ''
   }
