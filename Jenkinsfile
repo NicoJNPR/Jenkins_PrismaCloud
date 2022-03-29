@@ -19,7 +19,7 @@ pipeline {
 				}
 			}
 		}
-		stage('Deploy Image') {
+		/*stage('Deploy Image') {
 			steps {
 				script {
 					docker.withRegistry('', registryCredential) {
@@ -29,7 +29,7 @@ pipeline {
 					}
 				}
 			}
-		}
+		}*/
 		stage('twistlockScan') {
 			steps {
 				script {
