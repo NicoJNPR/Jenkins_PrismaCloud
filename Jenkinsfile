@@ -16,6 +16,7 @@ pipeline {
 			steps {
 				script {
 					dockerImage = docker.build imagename
+					docker.withRegistry('', registryCredential)
 				}
 			}
 		}
