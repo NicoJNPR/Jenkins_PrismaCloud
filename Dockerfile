@@ -1,4 +1,5 @@
-FROM centos:6
+FROM centos:7
+MAINTAINER Nicolas M
 CMD ["/bin/bash"]
 RUN yum install wget -y
 
