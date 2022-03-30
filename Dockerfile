@@ -1,8 +1,9 @@
-FROM centos:7
+FROM centos:6
 MAINTAINER Nicolas M
 CMD ["/bin/bash"]
 RUN echo 'nameserver 8.8.8.8' >> /etc/resolv.conf
-COPY /bin/wget /bin
+RUN useradd -u 8877 john
+USER john
 #RUN yum -y upgrade
 #RUN yum install epel-release -y
 #RUN yum install wget -y
