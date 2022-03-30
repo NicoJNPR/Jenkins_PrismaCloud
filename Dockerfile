@@ -1,7 +1,7 @@
 FROM centos:7
 MAINTAINER Nicolas M
 CMD ["/bin/bash"]
-RUN yum install wget -y
+RUN sudo yum install wget -y
 
 #FROM ubuntu:10.04
 # FROM ubuntu:latest
