@@ -16,7 +16,9 @@ pipeline {
 			steps {
 				script {
 					dockerImage = docker.build imagename
-					dockerImage.push("$BUILD_NUMBER")
+					docker.withRegistry('https://localhost:5000') {
+					        dockerImage.push("$BUILD_NUMBER")
+					}
 				}
 			}
 		}
