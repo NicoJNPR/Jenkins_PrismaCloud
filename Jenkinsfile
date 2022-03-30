@@ -1,3 +1,4 @@
+// Nicolas Pipeline
 pipeline {
 	environment {
 		imagename = "nicolasmarcoux/my-ubuntu"
