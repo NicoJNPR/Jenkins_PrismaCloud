@@ -1,3 +1,3 @@
-FROM ubuntu:8.04
+FROM ubuntu:10.04
 # FROM ubuntu:latest
 # my latest ubuntu
