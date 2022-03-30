@@ -15,10 +15,8 @@ pipeline {
 		stage('Building image') {
 			steps {
 				script {
-					dockerImage = docker.build imagename
-					docker.withRegistry('https://localhost:5000') {
-					        dockerImage.push("$BUILD_NUMBER")
-					}
+					dockerImage = docker.build("imagename:$BUILD_NUMBER")
+					/*dockerImage.push("$BUILD_NUMBER")*/
 				}
 			}
 		}
