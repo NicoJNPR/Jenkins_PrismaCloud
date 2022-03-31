@@ -1,7 +1,7 @@
 // Nicolas Pipeline
 pipeline {
 	environment {
-		imagename = "nicolasmarcoux/my-ubuntu"
+		imagename = "nicolasmarcoux/my-app"
 		registryCredential = 'dockerhub'
 		dockerImage = ''
 	}
@@ -23,7 +23,7 @@ pipeline {
 		stage('PrismaCloudScan') {
 			steps {
 				script {
-					prismaCloudScanImage ca: '', cert: '', dockerAddress: 'unix:///var/run/docker.sock', image: 'nicolasmarcoux/my-ubuntu:$BUILD_NUMBER', key: '', logLevel: 'info', podmanPath: '', project: '', resultsFile: 'prisma-cloud-scan-results.json', ignoreImageBuildTime: true
+					prismaCloudScanImage ca: '', cert: '', dockerAddress: 'unix:///var/run/docker.sock', image: 'nicolasmarcoux/my-app:$BUILD_NUMBER', key: '', logLevel: 'info', podmanPath: '', project: '', resultsFile: 'prisma-cloud-scan-results.json', ignoreImageBuildTime: true
 				}
 			}
 		}
