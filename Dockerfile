@@ -4,7 +4,6 @@ MAINTAINER Nicolas
 RUN useradd -u 8877 nicolas
 #RUN apt-get update
 #RUN apt-get install vi
-COPY /bin/vi /bin/vi
 
 
 
