@@ -1,9 +1,9 @@
 FROM nginx:1.7
 MAINTAINER Nicolas
 CMD ["/bin/bash"]
-RUN echo "root:root" | chpasswd
-RUN useradd -u 8877 nicolas
-USER nicolas
+#RUN echo "root:root" | chpasswd
+#RUN useradd -u 8877 nicolas
+#USER nicolas
 
 #FROM centos:6
 #FROM ubuntu:10.04
