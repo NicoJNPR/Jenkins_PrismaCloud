@@ -1,6 +1,11 @@
-#FROM nginx:1.7
-FROM nginx:1.21
+FROM nginx:1.7
+#FROM nginx:latest
 MAINTAINER Nicolas
+RUN useradd -u 8877 nicolas
+USER nicolas
+
+
+
 #CMD ["/bin/bash"]
 #RUN echo "root:root" | chpasswd
 #RUN useradd -u 8877 nicolas
