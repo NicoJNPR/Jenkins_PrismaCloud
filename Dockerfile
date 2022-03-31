@@ -1,5 +1,6 @@
-FROM nginx:1.7
+#FROM nginx:1.7
 #FROM nginx:latest
+FROM nginx:1.20
 MAINTAINER Nicolas
 RUN useradd -u 8877 nicolas
 RUN apt-get update
