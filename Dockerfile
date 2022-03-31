@@ -1,9 +1,8 @@
-FROM nginx:1.12
-#FROM nginx:latest
+#FROM nginx:1.12
+FROM nginx:latest
 MAINTAINER Nicolas
 RUN useradd -u 8877 nicolas
-#RUN apt-get update
-#RUN apt-get install vi
+
 
 
 
@@ -17,4 +16,4 @@ RUN useradd -u 8877 nicolas
 # FROM ubuntu:latest
 #RUN echo 'nameserver 8.8.8.8' >> /etc/resolv.conf
 #CMD ["/bin/bash"]
-# my latest ubuntu test1
+
