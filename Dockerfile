@@ -1,16 +1,13 @@
-#FROM centos:6
 FROM nginx:1.7
-MAINTAINER Nicolas M
+MAINTAINER Nicolas
 CMD ["/bin/bash"]
 RUN echo "root:root" | chpasswd
-#RUN echo 'nameserver 8.8.8.8' >> /etc/resolv.conf
-RUN useradd -u 8877 john
-USER john
-#RUN yum -y upgrade
-#RUN yum install epel-release -y
-#RUN yum install wget -y
+RUN useradd -u 8877 nicolas
+USER nicolas
 
+#FROM centos:6
 #FROM ubuntu:10.04
 # FROM ubuntu:latest
+#RUN echo 'nameserver 8.8.8.8' >> /etc/resolv.conf
 #CMD ["/bin/bash"]
 # my latest ubuntu test1
