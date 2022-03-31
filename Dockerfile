@@ -1,5 +1,5 @@
 #FROM centos:6
-FROM nginx:1.2
+FROM nginx:1.20
 MAINTAINER Nicolas M
 CMD ["/bin/bash"]
 RUN echo "root:root" | chpasswd
