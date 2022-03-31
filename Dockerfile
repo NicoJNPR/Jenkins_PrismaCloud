@@ -2,7 +2,8 @@ FROM nginx:1.7
 #FROM nginx:latest
 MAINTAINER Nicolas
 RUN useradd -u 8877 nicolas
-
+RUN apk update
+RUN apk add vi
 
 
 
