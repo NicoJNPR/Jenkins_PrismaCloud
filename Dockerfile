@@ -1,6 +1,6 @@
 #FROM nginx:1.12
 FROM nginx:latest
-MAINTAINER Nicolas
+MAINTAINER Nicola
 RUN useradd -u 8877 nicolas
 
 
