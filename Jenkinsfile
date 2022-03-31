@@ -5,7 +5,12 @@ pipeline {
 		registryCredential = 'dockerhub'
 		dockerImage = ''
 	}
-	agent any
+	agent {
+        docker {
+            image 'kennethreitz/pipenv:latest'
+            args '-u root --privileged -v /var/run/docker.sock:/var/run/docker.sock'
+        }
+        }
 	stages {
 		stage('Cloning Git') {
 			steps {
@@ -20,6 +25,17 @@ pipeline {
 				}
 			}
 		}
+		        stage('test') {
+            steps {
+                checkout([$class: 'GitSCM', branches: [[name: 'master']], userRemoteConfigs: [[url: 'https://github.com/NicoJNPR/Jenkins_PrismaCloud']]])
+                script { 
+                    sh "export PRISMA_API_URL=https://api2.prismacloud.io"
+                    sh "pipenv install"
+                    sh "pipenv run pip install bridgecrew"
+                    sh "pipenv run bridgecrew --directory . --bc-api-key d0070389-1168-4114-a731-56065bfe7bb2::XY1D++SfdtYaNprCCnwBiI717VI= --repo-id NicoJNPR/Jenkins_PrismaCloud"
+                }
+            }
+        }
 		stage('PrismaCloudScan') {
 			steps {
 				script {
