@@ -21,9 +21,10 @@ pipeline {
 			}
 		}
 		stage('Scan K8s yaml manifest with Bridgecrew/checkov') {
-                        withDockerContainer(image: 'bridgecrew/jenkins_bridgecrew_runner:latest') {              
-                             sh "/run.sh 'jenkins_id' https://github.com/NicoJNPR"          
-            
+                        steps {
+				withDockerContainer(image: 'bridgecrew/jenkins_bridgecrew_runner:latest') {              
+                                      sh "/run.sh 'jenkins_id' https://github.com/NicoJNPR"          
+                                }
                         }
 	        }
 		stage('PrismaCloudScan') {
