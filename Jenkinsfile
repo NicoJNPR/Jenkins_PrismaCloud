@@ -1,4 +1,4 @@
-// Nicolas Pipeline 
+// Nicolas Pipeline  
 pipeline {
 	environment {
 		imagename = "nicolasmarcoux/my-app"
