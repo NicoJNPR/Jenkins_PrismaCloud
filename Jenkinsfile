@@ -23,7 +23,7 @@ pipeline {
 		stage('Scan K8s yaml manifest with Bridgecrew/checkov') {
                         steps {
 				withDockerContainer(image: 'bridgecrew/jenkins_bridgecrew_runner:latest') {              
-                                      sh "/run.sh d0070389-1168-4114-a731-56065bfe7bb2::XY1D++SfdtYaNprCCnwBiI717VI= https://github.com/NicoPANW/IaC_PrismaCloud"          
+                                      sh "/run.sh BC_API_key https://github.com/NicoPANW/IaC_PrismaCloud"          
                                 }
                         }
 	        }
