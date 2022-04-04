@@ -9,7 +9,7 @@ pipeline {
 	stages {
 		stage('Cloning Git') {
 			steps {
-				git([url: 'https://github.com/NicoJNPR/Jenkins_PrismaCloud.git', branch: 'main', credentialsId: 'jenkins_id'])
+				git([url: 'https://github.com/NicoPANW/Jenkins_PrismaCloud.git', branch: 'main', credentialsId: 'jenkins_id'])
 
 			}
 		}
@@ -23,7 +23,7 @@ pipeline {
 		stage('Scan K8s yaml manifest with Bridgecrew/checkov') {
                         steps {
 				withDockerContainer(image: 'bridgecrew/jenkins_bridgecrew_runner:latest') {              
-                                      sh "/run.sh BC_API_KEY https://github.com/NicoJNPR/IaC_PrismaCloud"          
+                                      sh "/run.sh BC_API_KEY https://github.com/NicoPANW/IaC_PrismaCloud"          
                                 }
                         }
 	        }
