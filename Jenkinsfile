@@ -5,12 +5,12 @@ pipeline {
 		registryCredential = 'dockerhub'
 		dockerImage = ''
 	}
-	/*agent {
+	agent {
           docker {
             image 'kennethreitz/pipenv:latest'
             args '-u root --privileged -v /var/run/docker.sock:/var/run/docker.sock'
           }
-        }*/
+        }
 	agent any
 	stages {
 		stage('Cloning Git') {
