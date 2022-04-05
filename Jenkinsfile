@@ -11,7 +11,7 @@ pipeline {
             args '-u root --privileged -v /var/run/docker.sock:/var/run/docker.sock'
           }
         }
-	agent any
+	//agent any
 	stages {
 		stage('Cloning Git') {
 			steps {
