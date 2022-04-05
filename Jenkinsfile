@@ -5,13 +5,13 @@ pipeline {
 		registryCredential = 'dockerhub'
 		dockerImage = ''
 	}
-	agent {
+	/*agent {
           docker {
             image 'kennethreitz/pipenv:latest'
             args '-u root --privileged -v /var/run/docker.sock:/var/run/docker.sock'
           }
-        }
-	//agent any
+        }*/
+	agent any
 	stages {
 		stage('Cloning Git') {
 			steps {
@@ -26,7 +26,7 @@ pipeline {
 				}
 			}
 		}
-                stage('test IaC scan BC') {
+                /*stage('test IaC scan BC') {
                         steps {
                           checkout([$class: 'GitSCM', branches: [[name: 'master']], userRemoteConfigs: [[url: 'https://github.com/NicoPANW/IaC_PrismaCloud.git']]])
                                 script { 
@@ -36,7 +36,7 @@ pipeline {
                                         sh "pipenv run bridgecrew --directory . --bc-api-key $BC_API_key --repo-id NicoPANW/IaC_PrismaCloud"
                                 }
                         }
-                }
+                }*/
 		stage('PrismaCloudScan') {
 			steps {
 				script {
