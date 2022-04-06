@@ -28,8 +28,8 @@ pipeline {
 		}
                 stage('IaC Scan') {
 			steps {			
-                         //sh "sudo yum update"
-                         //sh "sudo yum -y install python3-pip"
+                         sh "sudo yum update"
+                         sh "sudo yum -y install python3-pip"
                          sh "sudo pip3 install pipenv"
 			 sh "sudo pip3 install dataclasses"
                          sh "pipenv install"
