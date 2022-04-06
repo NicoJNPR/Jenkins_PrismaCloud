@@ -31,10 +31,10 @@ pipeline {
                          sh "sudo yum update"
                          sh "sudo yum -y install python3-pip"
                          sh "sudo pip3 install pipenv"
-                         sh "sudo pipenv install"
+                         sh "pipenv install"
                          sh "export PRISMA_API_URL=https://api.prismacloud.io"
-                         sh "sudo pipenv run pip install bridgecrew"
-                         sh "sudo pipenv run bridgecrew --directory . --bc-api-key $BC_API --repo-id pjablonski123/base-shiftleftdemo"        
+                         sh "pipenv run pip install bridgecrew"
+                         sh "pipenv run bridgecrew --directory . --bc-api-key $BC_API --repo-id pjablonski123/base-shiftleftdemo"        
                         } 
                 }
 		/*withCredentials([usernamePassword(credentialsId: 'PwdtoPC', passwordVariable: 'password', usernameVariable: 'user')]) {
