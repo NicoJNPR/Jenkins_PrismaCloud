@@ -40,15 +40,6 @@ pipeline {
 			  }
                         } 
                 }*/
-		stage('PrismaCloudSandboxing') {
-			steps {
-				script {
-					withCredentials([usernamePassword(credentialsId: 'PwdtoPC', passwordVariable: 'password', usernameVariable: 'user')]) {
-					  sh "sudo /home/centos/twistcli sandbox --address https://us-east1.cloud.twistlock.com/us-2-158319311 --analysis-duration 5s -u $user  -p $password --output-file sandbox_out.json nicolasmarcoux/my-app:$BUILD_NUMBER"
-				        }
-				}
-			}
-		}
 		/*stage('PrismaCloudScanRepo') {
 			steps {
 				script {
@@ -69,6 +60,15 @@ pipeline {
 			steps {
 				script {
 					prismaCloudPublish resultsFilePattern: 'prisma-cloud-scan-results.json'
+				}
+			}
+		}
+		stage('PrismaCloudSandboxing') {
+			steps {
+				script {
+					withCredentials([usernamePassword(credentialsId: 'PwdtoPC', passwordVariable: 'password', usernameVariable: 'user')]) {
+					  sh "sudo /home/centos/twistcli sandbox --address https://us-east1.cloud.twistlock.com/us-2-158319311 --analysis-duration 5s -u $user  -p $password --output-file sandbox_out.json nicolasmarcoux/my-app:$BUILD_NUMBER"
+				        }
 				}
 			}
 		}
