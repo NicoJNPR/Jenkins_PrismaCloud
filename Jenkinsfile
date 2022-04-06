@@ -44,7 +44,14 @@ pipeline {
 				}
 			}
 		}*/
-		stage('PrismaCloudScan') {
+		stage('PrismaCloudScanRepo') {
+			steps {
+				script {
+					twistcli coderepo scan https://github.com/NicoPANW --repository Jenkins_PrismaCloud
+				}
+			}
+		}		
+		stage('PrismaCloudScanImage') {
 			steps {
 				script {
 					prismaCloudScanImage ca: '', cert: '', dockerAddress: 'unix:///var/run/docker.sock', image: 'nicolasmarcoux/my-app:$BUILD_NUMBER', key: '', logLevel: 'info', podmanPath: '', project: '', resultsFile: 'prisma-cloud-scan-results.json', ignoreImageBuildTime: true
