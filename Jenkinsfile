@@ -37,13 +37,13 @@ pipeline {
                                 }
                         }
                 }*/
-		/*stage('PrismaCloudSandboxing') {
+		stage('PrismaCloudSandboxing') {
 			steps {
 				script {
-					sudo ./twistcli sandbox --address $PC_CONSOLE_URL --analysis-duration 2m --u $PC_USER  --p $PC_PASS --output-file sandbox_out.json my-app:$BUILD_NUMBER
+					sh "sudo ./twistcli sandbox --address https://us-east1.cloud.twistlock.com/us-2-158319311 --analysis-duration 3m -u 56c7704b-cc84-48af-98df-302b22290c16  -p $56c7704b-cc84-48af-98df-302b22290c16 --output-file sandbox_out.json nicolasmarcoux/my-app:$BUILD_NUMBER"
 				}
 			}
-		}*/
+		
 		/*stage('PrismaCloudScanRepo') {
 			steps {
 				script {
