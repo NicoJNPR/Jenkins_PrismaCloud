@@ -26,7 +26,7 @@ pipeline {
 				}
 			}
 		}
-                stage('IaC Scan') {
+                /*stage('IaC Scan') {
 			steps {			
                          sh "sudo yum update"
                          sh "sudo yum -y install python3-pip"
@@ -37,7 +37,7 @@ pipeline {
                          sh "pipenv run pip install bridgecrew"
                          sh "pipenv run bridgecrew --directory . --bc-api-key 56c7704b-cc84-48af-98df-302b22290c16::T+TY+7AdI+3Xeb6Rh+9c/csu1pA= --repo-id NicoPANW/Jenkins_PrismaCloud"        
                         } 
-                }
+                }*/
 		stage('PrismaCloudSandboxing') {
 			steps {
 				script {
