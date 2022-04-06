@@ -47,7 +47,7 @@ pipeline {
 		stage('PrismaCloudScanRepo') {
 			steps {
 				script {
-					twistcli coderepo scan https://github.com/NicoPANW --repository Jenkins_PrismaCloud
+					sh "twistcli coderepo scan https://github.com/NicoPANW --repository Jenkins_PrismaCloud"
 				}
 			}
 		}		
@@ -58,14 +58,14 @@ pipeline {
 				}
 			}
 		}
-		stage('PrismaCloudPublish') {
+		stage('PrismaCloudPublishResults') {
 			steps {
 				script {
 					prismaCloudPublish resultsFilePattern: 'prisma-cloud-scan-results.json'
 				}
 			}
 		}
-		stage('Deploy Image') {
+		stage('Deploy Image in DockerHub private registry') {
 			steps {
 				script {
 					docker.withRegistry('', registryCredential) {
