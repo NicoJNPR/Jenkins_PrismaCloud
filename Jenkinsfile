@@ -53,7 +53,7 @@ pipeline {
 			steps {
 				script {
 					withCredentials([usernamePassword(credentialsId: 'PwdtoPC', passwordVariable: 'password', usernameVariable: 'user')]) {
-					  sh "sudo /home/centos/twistcli coderepo scan --address https://us-east1.cloud.twistlock.com/us-2-158319311 -u $user  -p $password https://github.com/NicoPANW --repository Jenkins_PrismaCloud"
+					  sh "sudo /home/centos/twistcli coderepo scan --address https://us-east1.cloud.twistlock.com/us-2-158319311 -u $user  -p $password . --repository https://github.com/NicoPANW/Jenkins_PrismaCloud"
 					}
 				}
 			}
