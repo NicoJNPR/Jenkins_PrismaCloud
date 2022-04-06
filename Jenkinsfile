@@ -56,7 +56,7 @@ pipeline {
 				}
 			}
 		}
-		stage('PrismaCloudPublishResults') {
+		stage('PrismaCloudPublishScanImageResults') {
 			steps {
 				script {
 					prismaCloudPublish resultsFilePattern: 'prisma-cloud-scan-results.json'
