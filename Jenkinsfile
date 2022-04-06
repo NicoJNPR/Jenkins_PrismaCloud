@@ -35,7 +35,7 @@ pipeline {
                            //sh "sudo pip3 install pipenv"
                            sh "pipenv install"
                            sh "export PRISMA_API_URL=https://api.prismacloud.io"
-                           //sh "pipenv run pip install bridgecrew"
+                           sh "pipenv run pip install bridgecrew"
                            sh "pipenv run bridgecrew --directory . --bc-api-key $user::$password --repo-id NicoPANW/Jenkins_PrismaCloud"
 			  }
                         } 
