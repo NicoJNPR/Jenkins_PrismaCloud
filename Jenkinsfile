@@ -49,7 +49,7 @@ pipeline {
 				}
 			}
 		}
-		stage('PrismaCloudScanRepo') {
+		/*stage('PrismaCloudScanRepo') {
 			steps {
 				script {
 					withCredentials([usernamePassword(credentialsId: 'PwdtoPC', passwordVariable: 'password', usernameVariable: 'user')]) {
@@ -57,7 +57,7 @@ pipeline {
 					}
 				}
 			}
-		}		
+		}*/		
 		stage('PrismaCloudScanImage') {
 			steps {
 				script {
