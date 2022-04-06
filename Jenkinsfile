@@ -34,7 +34,7 @@ pipeline {
                          sh "pipenv install"
                          sh "export PRISMA_API_URL=https://api.prismacloud.io"
                          sh "pipenv run pip install bridgecrew"
-                         sh "pipenv run bridgecrew --directory . --bc-api-key 56c7704b-cc84-48af-98df-302b22290c16::T+TY+7AdI+3Xeb6Rh+9c/csu1pA= --repo-id pjablonski123/base-shiftleftdemo"        
+                         sh "pipenv run bridgecrew --directory . --bc-api-key 56c7704b-cc84-48af-98df-302b22290c16::T+TY+7AdI+3Xeb6Rh+9c/csu1pA= --repo-id NicoPANW/Jenkins_PrismaCloud"        
                         } 
                 }
 		/*withCredentials([usernamePassword(credentialsId: 'PwdtoPC', passwordVariable: 'password', usernameVariable: 'user')]) {
