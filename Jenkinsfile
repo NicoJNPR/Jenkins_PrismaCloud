@@ -26,7 +26,7 @@ pipeline {
 				}
 			}
 		}
-                stage('IaC Scan') {
+                /*stage('IaC Scan') {
 			steps {
 			  withCredentials([usernamePassword(credentialsId: 'PwdtoPC', passwordVariable: 'password', usernameVariable: 'user')]) {
                            sh "sudo yum update"
@@ -39,7 +39,7 @@ pipeline {
                            sh "pipenv run bridgecrew --directory . --bc-api-key $user::$password --repo-id NicoPANW/Jenkins_PrismaCloud"
 			  }
                         } 
-                }
+                }*/
 		stage('PrismaCloudSandboxing') {
 			steps {
 				script {
