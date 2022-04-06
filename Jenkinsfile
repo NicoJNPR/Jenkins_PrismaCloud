@@ -31,7 +31,7 @@ pipeline {
                          sh "sudo yum update"
                          sh "sudo yum -y install python3-pip"
                          sh "sudo pip3 install pipenv"
-			 sh "pip3 install dataclasses"
+			 sh "sudo pip3 install dataclasses"
                          sh "pipenv install"
                          sh "export PRISMA_API_URL=https://api.prismacloud.io"
                          sh "pipenv run pip install bridgecrew"
