@@ -26,18 +26,16 @@ pipeline {
 				}
 			}
 		}
-                /*stage('test IaC scan BC') {
-                        steps {
-                          checkout([$class: 'GitSCM', branches: [[name: 'master']], userRemoteConfigs: [[url: 'https://github.com/NicoPANW/IaC_PrismaCloud.git']]])
-                                script { 
-                                        sh "export PRISMA_API_URL=https://api2.prismacloud.io"
-                                        sh "pipenv install"
-                                        sh "pipenv run pip install bridgecrew"
-                                        sh "pipenv run bridgecrew --directory . --bc-api-key $BC_API_key --repo-id NicoPANW/IaC_PrismaCloud"
-                                }
-                        }
-                }*/
-		withCredentials([usernamePassword(credentialsId: 'PwdtoPC', passwordVariable: 'password', usernameVariable: 'user')]) {
+                stage('IaC Scan') {
+                 sh "sudo yum update"
+                 sh "sudo yum -y install python3-pip"
+                 sh "pip3 install pipenv"
+                 sh "pipenv install"
+                 sh "export PRISMA_API_URL=https://api.prismacloud.io"
+                 sh "pipenv run pip install bridgecrew"
+                 sh "pipenv run bridgecrew --directory . --bc-api-key $BC_API --repo-id pjablonski123/base-shiftleftdemo"        
+                } 
+		/*withCredentials([usernamePassword(credentialsId: 'PwdtoPC', passwordVariable: 'password', usernameVariable: 'user')]) {
                     stage('PrismaCloudSandboxing') {
 			steps {
 				script {
@@ -45,7 +43,7 @@ pipeline {
 				}
 			}
 		    }
-                }
+                }*/
 		stage('PrismaCloudSandboxing') {
 			steps {
 				withCredentials([usernamePassword(credentialsId: 'PwdtoPC', passwordVariable: 'password', usernameVariable: 'user')]) {
