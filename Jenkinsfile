@@ -40,7 +40,7 @@ pipeline {
 			  }
                         } 
                 }*/
-		/*stage('PrismaCloudScanRepo') {
+		/*stage('PrismaCloud Scan Repo') {
 			steps {
 				script {
 					withCredentials([usernamePassword(credentialsId: 'PwdtoPC', passwordVariable: 'password', usernameVariable: 'user')]) {
@@ -49,21 +49,21 @@ pipeline {
 				}
 			}
 		}*/		
-		stage('PrismaCloudScanImage') {
+		stage('PrismaCloud Scan Image') {
 			steps {
 				script {
 					prismaCloudScanImage ca: '', cert: '', dockerAddress: 'unix:///var/run/docker.sock', image: 'nicolasmarcoux/my-app:$BUILD_NUMBER', key: '', logLevel: 'info', podmanPath: '', project: '', resultsFile: 'prisma-cloud-scan-results.json', ignoreImageBuildTime: true
 				}
 			}
 		}
-		stage('PrismaCloudPublishScanImageResults') {
+		stage('PrismaCloud Publish Scan Image Results') {
 			steps {
 				script {
 					prismaCloudPublish resultsFilePattern: 'prisma-cloud-scan-results.json'
 				}
 			}
 		}
-		stage('PrismaCloudSandboxing') {
+		stage('PrismaCloud Sandboxing') {
 			steps {
 				script {
 					withCredentials([usernamePassword(credentialsId: 'PwdtoPC', passwordVariable: 'password', usernameVariable: 'user')]) {
