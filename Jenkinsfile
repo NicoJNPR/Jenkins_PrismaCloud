@@ -37,6 +37,13 @@ pipeline {
                                 }
                         }
                 }*/
+		/*stage('PrismaCloudSandboxing') {
+			steps {
+				script {
+					sudo ./twistcli sandbox --address $PC_CONSOLE_URL --analysis-duration 2m --u $PC_USER  --p $PC_PASS --output-file sandbox_out.json my-app:$BUILD_NUMBER
+				}
+			}
+		}*/
 		stage('PrismaCloudScan') {
 			steps {
 				script {
