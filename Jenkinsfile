@@ -38,31 +38,15 @@ pipeline {
                          sh "pipenv run bridgecrew --directory . --bc-api-key 56c7704b-cc84-48af-98df-302b22290c16::T+TY+7AdI+3Xeb6Rh+9c/csu1pA= --repo-id NicoPANW/Jenkins_PrismaCloud"        
                         } 
                 }
-		/*withCredentials([usernamePassword(credentialsId: 'PwdtoPC', passwordVariable: 'password', usernameVariable: 'user')]) {
-                    stage('PrismaCloudSandboxing') {
-			steps {
-				script {
-					sh "sudo /home/centos/twistcli sandbox --address https://us-east1.cloud.twistlock.com/us-2-158319311 --analysis-duration 3m -u 56c7704b-cc84-48af-98df-302b22290c16  -p $password --output-file sandbox_out.json nicolasmarcoux/my-app:$BUILD_NUMBER"
-				}
-			}
-		    }
-                }*/
 		stage('PrismaCloudSandboxing') {
 			steps {
-				withCredentials([usernamePassword(credentialsId: 'PwdtoPC', passwordVariable: 'password', usernameVariable: 'user')]) {
-				   script {
-					sh "sudo /home/centos/twistcli sandbox --address https://us-east1.cloud.twistlock.com/us-2-158319311 --analysis-duration 3m -u 56c7704b-cc84-48af-98df-302b22290c16  -p /home/centos/pc_pwd --output-file sandbox_out.json nicolasmarcoux/my-app:$BUILD_NUMBER"
-				   }
+				script {
+					withCredentials([usernamePassword(credentialsId: 'PwdtoPC', passwordVariable: 'password', usernameVariable: 'user')]) {
+					  sh "sudo /home/centos/twistcli sandbox --address https://us-east1.cloud.twistlock.com/us-2-158319311 --analysis-duration 3m -u $user  -p $password --output-file sandbox_out.json nicolasmarcoux/my-app:$BUILD_NUMBER"
+				        }
 				}
 			}
 		}
-		/*stage('PrismaCloudSandboxing') {
-			steps {
-				script {
-					sh "sudo /home/centos/twistcli sandbox --address https://us-east1.cloud.twistlock.com/us-2-158319311 --analysis-duration 3m -u 56c7704b-cc84-48af-98df-302b22290c16  -p /home/centos/pc_pwd --output-file sandbox_out.json nicolasmarcoux/my-app:$BUILD_NUMBER"
-				}
-			}
-		}*/
 		/*stage('PrismaCloudScanRepo') {
 			steps {
 				script {
