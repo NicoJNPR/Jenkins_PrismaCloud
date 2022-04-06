@@ -26,18 +26,20 @@ pipeline {
 				}
 			}
 		}
-                /*stage('IaC Scan') {
-			steps {			
-                         sh "sudo yum update"
-                         sh "sudo yum -y install python3-pip"
-			 sh "sudo pip3 install --user pipenv"
-                         sh "sudo pip3 install pipenv"
-                         sh "pipenv install"
-                         sh "export PRISMA_API_URL=https://api.prismacloud.io"
-                         sh "pipenv run pip install bridgecrew"
-                         sh "pipenv run bridgecrew --directory . --bc-api-key 56c7704b-cc84-48af-98df-302b22290c16::T+TY+7AdI+3Xeb6Rh+9c/csu1pA= --repo-id NicoPANW/Jenkins_PrismaCloud"        
+                stage('IaC Scan') {
+			steps {
+			  withCredentials([usernamePassword(credentialsId: 'PwdtoPC', passwordVariable: 'password', usernameVariable: 'user')]) {
+                           sh "sudo yum update"
+                           sh "sudo yum -y install python3-pip"
+			   sh "sudo pip3 install --user pipenv"
+                           sh "sudo pip3 install pipenv"
+                           sh "pipenv install"
+                           sh "export PRISMA_API_URL=https://api.prismacloud.io"
+                           sh "pipenv run pip install bridgecrew"
+                           sh "pipenv run bridgecrew --directory . --bc-api-key $user::$password --repo-id NicoPANW/Jenkins_PrismaCloud"
+			  }
                         } 
-                }*/
+                }
 		stage('PrismaCloudSandboxing') {
 			steps {
 				script {
