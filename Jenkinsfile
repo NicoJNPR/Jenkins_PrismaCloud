@@ -49,13 +49,13 @@ pipeline {
 				}
 			}
 		}
-		/*stage('PrismaCloudScanRepo') {
+		stage('PrismaCloudScanRepo') {
 			steps {
 				script {
 					sh "/home/centos/twistcli coderepo scan https://github.com/NicoPANW --repository Jenkins_PrismaCloud"
 				}
 			}
-		}*/		
+		}		
 		stage('PrismaCloudScanImage') {
 			steps {
 				script {
