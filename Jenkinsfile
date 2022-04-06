@@ -47,7 +47,7 @@ pipeline {
 		stage('PrismaCloudScanRepo') {
 			steps {
 				script {
-					sh "/home/centos/twistcli coderepo scan https://github.com/NicoPANW --repository Jenkins_PrismaCloud"
+					sh "sudo /home/centos/twistcli coderepo scan https://github.com/NicoPANW --repository Jenkins_PrismaCloud"
 				}
 			}
 		}		
