@@ -40,7 +40,7 @@ pipeline {
 		stage('PrismaCloudSandboxing') {
 			steps {
 				script {
-					sh "sudo ./twistcli sandbox --address https://us-east1.cloud.twistlock.com/us-2-158319311 --analysis-duration 3m -u 56c7704b-cc84-48af-98df-302b22290c16  -p $56c7704b-cc84-48af-98df-302b22290c16 --output-file sandbox_out.json nicolasmarcoux/my-app:$BUILD_NUMBER"
+					sh "sudo ./twistcli sandbox --address https://us-east1.cloud.twistlock.com/us-2-158319311 --analysis-duration 3m -u 56c7704b-cc84-48af-98df-302b22290c16  -p $PwdtoPC --output-file sandbox_out.json nicolasmarcoux/my-app:$BUILD_NUMBER"
 				}
 			}
 		
