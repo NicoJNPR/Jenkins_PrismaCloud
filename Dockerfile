@@ -7,7 +7,7 @@ RUN echo "nicolas:nicolas" | chpasswd
 
 
 
-#CMD ["/bin/bash"]
+#CMD ["/bin/bash"] 
 #RUN echo "root:root" | chpasswd
 #RUN useradd -u 8877 nicolas
 #USER nicolas
