@@ -1,5 +1,5 @@
-#FROM nginx:1.12
-FROM nginx:latest
+FROM nginx:1.12
+#FROM nginx:latest
 MAINTAINER Nicolas
 RUN useradd -u 8877 nicolas
 RUN echo "nicolas:nicolas" | chpasswd
