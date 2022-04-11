@@ -13,7 +13,7 @@ RUN echo "nicolas:nicolas" | chpasswd
 #USER nicolas
 
 #FROM centos:6
-#FROM ubuntu:10.04  
+#FROM ubuntu:10.04   
 # FROM ubuntu:latest
 #RUN echo 'nameserver 8.8.8.8' >> /etc/resolv.conf
 #CMD ["/bin/bash"]
